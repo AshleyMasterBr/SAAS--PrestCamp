@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orçamento Online | Sua Marca</title>
+    <title>Orçamento Online | PrestCamp</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -14,16 +14,17 @@
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* Cores da Marca */
+        /* Cores da Marca - PRESTCAMP (Marrom e Bege) */
         :root {
-            --primary: #FF6B00; 
-            --secondary: #1a1a1a;
+            --primary: #8B4513; /* Marrom Sela/Madeira */
+            --secondary: #2F1B0E; /* Marrom Café Bem Escuro */
+            --header-bg: #F5DEB3; /* Bege Trigo (Cor de pele/Areia) */
             --accent: #25D366; 
             --white: #ffffff;
         }
 
         /* --- HEADER --- */
-        header { background: var(--white); padding: 12px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        header { background: var(--header-bg); padding: 12px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         header .flex { display: flex; justify-content: space-between; align-items: center; }
         
         /* Logo */
@@ -36,21 +37,20 @@
 
         /* Botão Header */
         .btn-zap-header { 
-            background: var(--accent); color: white; padding: 8px 16px; border-radius: 50px; 
+            background: var(--secondary); color: var(--header-bg); padding: 8px 16px; border-radius: 50px; 
             text-decoration: none; font-weight: 600; font-size: 0.9rem; 
             display: flex; align-items: center; gap: 6px; 
-            white-space: nowrap; /* Não quebra linha */
+            white-space: nowrap;
         }
 
         /* --- HERO SECTION --- */
         .hero { 
-            /* Importante: tenha 'fundo.jpg' na pasta */
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('fundo.jpg'); 
+            background: linear-gradient(rgba(47, 27, 14, 0.8), rgba(47, 27, 14, 0.8)), url('fundo.jpg'); 
             background-size: cover; background-position: center; 
             min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center; color: white;
-            padding: 90px 0 60px 0; /* Padding Top ajustado para não cortar no celular */
+            padding: 90px 0 60px 0;
         }
         .hero-content { max-width: 800px; width: 100%; }
         .hero h1 { font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; line-height: 1.2; }
@@ -61,8 +61,9 @@
             background: white; color: var(--secondary);
             padding: 25px; border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            max-width: 450px; margin: 0 auto;
+            max-width: 500px; margin: 0 auto;
             text-align: left;
+            border-top: 5px solid var(--primary);
         }
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem; color: #555; }
@@ -74,7 +75,7 @@
             border: none; padding: 15px; font-size: 1rem; font-weight: 700; text-transform: uppercase; 
             border-radius: 8px; cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
-        .btn-calc:hover { background: #e65c00; transform: translateY(-2px); }
+        .btn-calc:hover { background: #6d360f; transform: translateY(-2px); }
 
         /* --- MODAL (Resultado) --- */
         .modal-overlay {
@@ -87,6 +88,7 @@
             background: white; padding: 25px; border-radius: 15px;
             max-width: 500px; width: 100%; text-align: center;
             position: relative; animation: slideUp 0.4s ease;
+            border-top: 5px solid var(--primary);
         }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         
@@ -121,7 +123,7 @@
         .feature-item p { font-size: 0.9rem; }
 
         /* --- FOOTER --- */
-        footer { background: var(--secondary); color: #777; padding: 20px 0; font-size: 0.8rem; }
+        footer { background: var(--secondary); color: var(--header-bg); padding: 20px 0; font-size: 0.8rem; }
         
         .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
         
@@ -132,24 +134,15 @@
         .footer-brand img { height: 25px; width: auto; opacity: 0.8; }
         .footer-text { text-align: right; opacity: 0.8; }
 
-        /* --- MOBILE AJUSTES (Importante para o Mockup) --- */
+        /* --- MOBILE AJUSTES --- */
         @media (max-width: 480px) {
             .container { padding: 0 15px; }
-            
-            /* Logo menor no celular */
             .logo { font-size: 1rem; }
             .logo img { height: 28px; }
-            
-            /* Botão Zap Compacto */
-            .btn-zap-header { 
-                font-size: 0.8rem; 
-                padding: 6px 12px; 
-            }
-            .btn-zap-header span { display: none; } /* Esconde texto longo se tiver */
-            
+            .btn-zap-header { font-size: 0.8rem; padding: 6px 12px; }
+            .btn-zap-header span { display: none; } 
             .hero h1 { font-size: 1.6rem; }
             .total-value { font-size: 1.8rem; }
-            
             .footer-row { flex-direction: column; text-align: center; }
             .footer-text { text-align: center; }
         }
@@ -161,21 +154,21 @@
         <div class="container flex">
             <div class="logo">
                 <img src="logo.png" alt="Logo" onerror="this.style.display='none'"> 
-                <div>SUA MARCA</div>
+                <div>PRESTCAMP <span style="color: var(--primary);">LAMINADOS</span></div>
             </div>
-            <a href="#" class="btn-zap-header"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/5519994412309" target="_blank" class="btn-zap-header"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>Instalação em <br> <span style="color: var(--primary);">SUA REGIÃO</span></h1>
-            <p>Faça seu orçamento em 30s e garanta <strong style="color: #fff;">CONDIÇÕES EXCLUSIVAS</strong>.</p>
+            <h1>O melhor preço de <br> <span style="color: var(--header-bg);">CAMPINAS E REGIÃO</span></h1>
+            <p>Faça seu orçamento em 30s. <strong style="color: #fff;">TUDO INCLUSO</strong> (Material + Mão de Obra).</p>
             
             <div class="calculator-box">
                 <div class="form-group">
                     <label>Qual a metragem aproximada? (m²)</label>
-                    <input type="number" id="metragem" placeholder="Ex: 45">
+                    <input type="number" id="metragem" placeholder="Ex: 30">
                 </div>
                 
                 <div class="form-group">
@@ -191,25 +184,31 @@
                 <div class="form-group">
                     <label>O piso está nivelado?</label>
                     <select id="nivelamento">
-                        <option value="Nao sei">Não sei dizer</option>
                         <option value="Sim">Sim, está reto</option>
                         <option value="Não">Não, está irregular</option>
+                        <option value="Nao sei">Não sei dizer</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Modelo preferido?</label>
+                    <label>Modelo preferido? (Instalado)</label>
                     <select id="modelo">
-                        <option value="120">Laminado Padrão (R$ 120/m²)</option>
-                        <option value="160">Vinílico Colado (R$ 160/m²)</option>
-                        <option value="210">Vinílico Clicado (R$ 210/m²)</option>
-                        <option value="350">Madeira Maciça (R$ 350/m²)</option>
+                        <optgroup label="Pisos Laminados">
+                            <option value="102.90">Laminado Eucafloor (R$ 102,90/m²)</option>
+                            <option value="115.90">Laminado Durafloor (R$ 115,90/m²)</option>
+                            <option value="139.90">Laminado Quick Step (R$ 139,90/m²)</option>
+                        </optgroup>
+                        <optgroup label="Pisos Vinílicos">
+                            <option value="169.90">Vinílico Colado Eucafloor (R$ 169,90/m²)</option>
+                            <option value="189.90">Vinílico Injoy Tarkett (R$ 189,90/m²)</option>
+                            <option value="209.90">Vinílico Click Biancogres (R$ 209,90/m²)</option>
+                        </optgroup>
                     </select>
                 </div>
 
                 <div class="form-group" style="display:flex; align-items:center; gap:10px; margin-top: 5px;">
-                    <input type="checkbox" id="rodape" style="width:20px;">
-                    <label for="rodape" style="margin:0;">Incluir Rodapé (+ R$ 25/m)</label>
+                    <input type="checkbox" id="rodape" checked disabled style="width:20px;">
+                    <label for="rodape" style="margin:0; font-weight: 700; color: var(--primary);">Rodapé e Acessórios (Incluso)</label>
                 </div>
 
                 <button class="btn-calc" onclick="calcular()">VER PREÇO ESTIMADO</button>
@@ -219,23 +218,23 @@
 
     <section class="features">
         <div class="container">
-            <h2>Por que escolher a SUA MARCA?</h2>
+            <h2>Por que escolher a <span style="color:var(--primary)">PRESTCAMP</span>?</h2>
             
             <div class="feature-grid">
                 <div class="feature-item">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Instalação Rápida</h3>
-                    <p>Equipe rápida e limpa. Entregamos sua obra sem dor de cabeça.</p>
+                    <i class="fas fa-hammer"></i>
+                    <h3>Instalação Inclusa</h3>
+                    <p>O valor do metro já inclui mão de obra especializada e acabamentos.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-medal"></i>
-                    <h3>Garantia Total</h3>
-                    <p>Segurança na instalação e nos materiais utilizados.</p>
+                    <h3>Marcas Líderes</h3>
+                    <p>Trabalhamos apenas com Eucafloor, Durafloor, Quick Step e Tarkett.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-comments-dollar"></i>
-                    <h3>Negociação Direta</h3>
-                    <p>Fale diretamente com quem resolve e pague facilitado.</p>
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Transparência</h3>
+                    <p>Sem surpresas no final. Orçamento claro e direto.</p>
                 </div>
             </div>
         </div>
@@ -245,7 +244,7 @@
         <div class="container footer-row">
             <div class="footer-brand">
                 <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
-                <div>SUA MARCA</div>
+                <div>PRESTCAMP <span style="color: var(--header-bg);">LAMINADOS</span></div>
             </div>
             <div class="footer-text">
                 &copy; Todos os direitos reservados. <span style="margin: 0 5px; opacity: 0.3;">|</span> Desenvolvido por Legado Performance
@@ -257,7 +256,7 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal()">&times;</span>
             
-            <h3>Orçamento Estimado</h3>
+            <h3>Orçamento Completo</h3>
             
             <div class="price-display">
                 <div class="total-label">Investimento Aproximado</div>
@@ -265,18 +264,18 @@
             </div>
 
             <div class="bonus-list">
-                <p style="margin-bottom:10px; font-weight:600;">Condições Exclusivas Hoje:</p>
+                <p style="margin-bottom:10px; font-weight:600;">O que está incluso:</p>
                 <div class="bonus-item free">
-                    <span><i class="fas fa-check"></i> Cola Especial</span>
-                    <span><span class="strike">R$ 300</span> GRÁTIS</span>
+                    <span><i class="fas fa-check"></i> Rodapés e Acabamentos</span>
+                    <span>INCLUSO</span>
                 </div>
                 <div class="bonus-item free">
-                    <span><i class="fas fa-check"></i> Manta Acústica</span>
-                    <span><span class="strike">R$ 150</span> GRÁTIS</span>
+                    <span><i class="fas fa-check"></i> Mão de Obra</span>
+                    <span>INCLUSO</span>
                 </div>
                 <div class="bonus-item">
-                    <span><i class="fas fa-check"></i> Mão de Obra</span>
-                    <span>Incluso</span>
+                    <span><i class="fas fa-check"></i> Garantia de Instalação</span>
+                    <span>INCLUSO</span>
                 </div>
             </div>
 
@@ -285,7 +284,7 @@
             </a>
             
             <p class="disclaimer">
-                *Valor estimado. Visita técnica necessária para validar.
+                *Cortes de porta e remoção de piso antigo podem ter custo adicional.
             </p>
         </div>
     </div>
@@ -296,7 +295,6 @@
             const modeloEl = document.getElementById('modelo');
             const modeloPreco = parseFloat(modeloEl.value);
             const modeloNome = modeloEl.options[modeloEl.selectedIndex].text;
-            const temRodape = document.getElementById('rodape').checked;
             
             const pisoAtual = document.getElementById('pisoAtual').value;
             const nivelamento = document.getElementById('nivelamento').value;
@@ -306,24 +304,23 @@
                 return;
             }
 
+            // Cálculo Direto (Tudo Incluso)
             let total = metragem * modeloPreco;
-            if (temRodape) {
-                total += (metragem * 25); 
-            }
 
             const valorFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('valorFinal').innerText = valorFormatado;
             
-            const textoZap = `Olá! Simulação do site:\n\n` +
+            const textoZap = `Olá, PrestCamp! Gostei do orçamento:\n\n` +
                              `📐 *Metragem:* ${metragem}m²\n` +
                              `🪵 *Modelo:* ${modeloNome.split('(')[0]}\n` +
-                             `💰 *Valor Estimado:* ${valorFormatado}\n\n` +
+                             `✅ *Pacote:* Material + Instalação + Rodapé\n` +
+                             `💰 *Valor Total Estimado:* ${valorFormatado}\n\n` +
                              `ℹ️ *Local:*\n` +
                              `- Atual: ${pisoAtual}\n` +
                              `- Nivelamento: ${nivelamento}\n\n` +
-                             `Quero agendar visita.`;
+                             `Gostaria de agendar visita para validar.`;
             
-            const numeroZap = "5511913393797"; 
+            const numeroZap = "5519994412309"; 
             const link = `https://wa.me/${numeroZap}?text=${encodeURIComponent(textoZap)}`;
             document.getElementById('linkZap').href = link;
             document.getElementById('modalResult').style.display = 'flex';
@@ -342,4 +339,3 @@
     </script>
 </body>
 </html>
-
